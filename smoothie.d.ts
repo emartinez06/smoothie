@@ -1,8 +1,7 @@
-// Type definitions for Smoothie Charts 1.34
+// Type definitions for Smoothie Charts 1.35
 // Project: https://github.com/joewalnes/smoothie
 // Definitions by: Drew Noakes <https://drewnoakes.com>
 //                 Mike H. Hawley <https://github.com/mikehhawley>
-// Definitions: https://github.com/borisyankov/DefinitelyTyped/smoothie
 
 export interface ITimeSeriesOptions {
     resetBounds?: boolean;
@@ -13,6 +12,7 @@ export interface ITimeSeriesPresentationOptions {
     strokeStyle?: string;
     fillStyle?: string;
     lineWidth?: number;
+    tooltipLabel?: string;
 }
 
 export declare class TimeSeries {
@@ -102,6 +102,17 @@ export interface ILabelOptions {
     intermediateLabelSameAxis?: boolean;
 }
 
+export interface ITitleOptions {
+    /** The text to display on the left side of the chart. Defaults to "". */
+    text?: string;
+    /** Colour for text. */
+    fillStyle?: string;
+    fontSize?: number;
+    fontFamily?: string;
+    /** The vertical position of the text. Defaults to "middle". */
+    verticalAlign?: "top" | "middle" | "bottom";
+}
+
 export interface IRange { min: number; max: number }
 
 export interface IHorizontalLine {
@@ -142,6 +153,8 @@ export interface IChartOptions {
     grid?: IGridOptions;
 
     labels?: ILabelOptions;
+
+    title?: ITitleOptions;
 
     tooltip?: boolean;
     tooltipLine?: { lineWidth: number, strokeStyle: string };
